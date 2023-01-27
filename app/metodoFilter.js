@@ -1,11 +1,9 @@
-const bannerCategorias = document.getElementById('nav-categorias');
+const botoes = document.querySelectorAll('.btn')
+botoes.forEach(btn => btn.addEventListener('click', filtrarLivros))
 
-bannerCategorias.addEventListener('click', filtrarLivros)
-
-function filtrarLivros(evento) {
-    console.log(evento.target.value);
-    let livrosFiltrados = livros.filter(livro => {
-        return livro.categoria == evento.target.value;
-    })
-    exibirOsLivrosNaTela(livrosFiltrados);
+function filtrarLivros() {
+    const elementoBtn = document.getElementById(this.id)
+    const categoria = elementoBtn.value
+    let livrosFiltrados = livros.filter(livro => livro.categoria == categoria)
+    exibirOsLivrosNaTela(livrosFiltrados)
 }
